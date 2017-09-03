@@ -7,10 +7,15 @@ export default function ProductTable(props) {
   function getTableRows() {
     const rows = [];
     let previousCategories = [];
+    const productsClone = props.products.slice(0);
 
-    props.products.forEach((product) => {
+    productsClone.sort((a, b) => {
+      return a.category < b.category;
+    });
 
-      if (product.name.indexOf(props.filterText) < 0) return;
+    productsClone.forEach((product) => {
+
+      if (product.name.toLowerCase().indexOf(props.filterText.toLowerCase()) < 0) return;
 
       if (props.inStockOnly && !product.stocked) return;
 

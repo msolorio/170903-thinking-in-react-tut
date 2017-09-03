@@ -10,7 +10,9 @@ class App extends Component {
       {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
       {category: "Electronics", price: "$99.99", stocked: true, name: "photon colider"},
       {category: "Electronics", price: "$399.99", stocked: false, name: "light bulb"},
-      {category: "Electronics", price: "$199.99", stocked: true, name: "physics book"}
+      {category: "Electronics", price: "$199.99", stocked: true, name: "physics book"},
+      {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Marbles"},
+      {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Bungee cables"},
     ];
 
     return (
