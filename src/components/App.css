@@ -1,0 +1,8 @@
+.notStocked {
+  color: #c51908;
+}
+
+th,
+td {
+  text-align: left;
+}
