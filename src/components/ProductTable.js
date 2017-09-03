@@ -6,16 +6,21 @@ export default function ProductTable(props) {
 
   function getTableRows() {
     const rows = [];
-    let previousCategory = null;
+    let previousCategories = [];
 
     props.products.forEach((product) => {
-      if (product.category !== previousCategory) {
+
+      if (product.name.indexOf(props.filterText) < 0) return;
+
+      if (props.inStockOnly && !product.stocked) return;
+
+      if (previousCategories.indexOf(product.category) < 0) {
         rows.push(
           <ProductCategoryRow key={product.category}
             category={product.category} />
         );
       }
-      
+
       rows.push(
         <ProductRow key={product.name}
           name={product.name}
@@ -23,7 +28,7 @@ export default function ProductTable(props) {
           stocked={product.stocked} />
       );
 
-      previousCategory = product.category;
+      previousCategories.push(product.category);
     });
 
     return rows;

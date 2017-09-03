@@ -8,6 +8,7 @@ export default class FilterableProductTable extends Component {
     super(props);
 
     this.onFilterTextChange = this.onFilterTextChange.bind(this);
+    this.onInStockOptionChange = this.onInStockOptionChange.bind(this);
 
     this.state = {
       filterText: '',
@@ -19,13 +20,18 @@ export default class FilterableProductTable extends Component {
     this.setState({filterText: inputVal});
   }
 
+  onInStockOptionChange(isChecked) {
+    this.setState({inStockOnly: isChecked});
+  }
+
   render() {
     return (
       <div className="FilterableProductTable">
 
         <SearchBar filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly}
-          onFilterTextChange={this.onFilterTextChange}/>
+          onFilterTextChange={this.onFilterTextChange}
+          onInStockOptionChange={this.onInStockOptionChange}/>
 
         <ProductTable products={this.props.products}
           filterText={this.state.filterText}
